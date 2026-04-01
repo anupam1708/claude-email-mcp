@@ -1,10 +1,10 @@
 service: claude-email-mcp
 
-frameworkVersion: '3'
+frameworkVersion: '3.39.0'
 
 provider:
   name: aws
-  runtime: nodejs18.x
+  runtime: nodejs22.x
   stage: ${opt:stage, 'dev'}
   region: ${opt:region, 'us-east-1'}
   memorySize: 256
@@ -124,7 +124,7 @@ resources:
       Properties:
         FunctionName: api-key-authorizer-${self:provider.stage}
         Handler: src/utils/auth.authorize
-        Runtime: nodejs18.x
+        Runtime: nodejs22.x
         MemorySize: 128
         Timeout: 10
         Role:
